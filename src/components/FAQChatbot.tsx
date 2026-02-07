@@ -148,12 +148,12 @@ const faqs: FAQItem[] = [
 
   {
     question: "Quanto costa un sito base?",
-    answer: "Il Sito Vetrina parte da €208,90 con 3-5 pagine professionali e responsive. Include: Home, Chi Siamo, Servizi, Contatti. SEO di base, hosting e dominio inclusi il primo anno!",
+    answer: "Il Sito Vetrina parte da €208,90 con 3-5 pagine professionali e responsive. Include: Home, Servizi, Portfolio, Contatti. SEO di base, hosting e dominio inclusi il primo anno!",
     keywords: ["sito", "base", "vetrina", "costa", "prezzo", "quanto"]
   },
   {
     question: "Quante pagine include il sito vetrina?",
-    answer: "Generalmente da 3 a 5 pagine: Home, Chi Siamo, Servizi, Contatti, etc. Personalizzabile in base alle tue esigenze! Ogni pagina è ottimizzata per mobile e SEO.",
+    answer: "Generalmente da 3 a 5 pagine: Home, Servizi, Portfolio, Contatti, etc. Personalizzabile in base alle tue esigenze! Ogni pagina è ottimizzata per mobile e SEO.",
     keywords: ["pagine", "quante", "include", "sito"]
   },
   {
@@ -434,60 +434,60 @@ const FAQChatbot = () => {
   const { toast } = useToast();
 
   const handleQuestionClick = (faq: FAQItem) => {
-    setMessages(prev => [...prev, 
-      { text: faq.question, isUser: true },
-      { text: faq.answer, isUser: false }
+    setMessages(prev => [...prev,
+    { text: faq.question, isUser: true },
+    { text: faq.answer, isUser: false }
     ]);
     setShowSuggestions(false);
   };
 
   const handleSend = () => {
     if (!inputValue.trim()) return;
-    
+
     setShowSuggestions(false);
     const userMessage = inputValue.toLowerCase().trim();
     setMessages(prev => [...prev, { text: inputValue, isUser: true }]);
-    
+
     const contactKeywords = [
-      'contattare', 'contattarvi', 'contatto', 'contatti', 
+      'contattare', 'contattarvi', 'contatto', 'contatti',
       'parlare', 'scrivere', 'chiamare', 'telefonare',
       'contattare l\'azienda', 'contattare singularitydream',
       'contattare singularity', 'parlare con voi', 'inviare',
       'messaggio', 'richiesta', 'informazioni'
     ];
     const isContactQuery = contactKeywords.some(keyword => userMessage.includes(keyword));
-    
+
     if (isContactQuery) {
       setTimeout(() => {
-        setMessages(prev => [...prev, { 
-          text: "Perfetto! Ti invio subito la richiesta di contatto. Compila i campi qui sotto e riceverai risposta entro 24 ore! ⬇️", 
-          isUser: false 
+        setMessages(prev => [...prev, {
+          text: "Perfetto! Ti invio subito la richiesta di contatto. Compila i campi qui sotto e riceverai risposta entro 24 ore! ⬇️",
+          isUser: false
         }]);
         setShowContactForm(true);
       }, 500);
       setInputValue('');
       return;
     }
-    
+
     let bestMatch: FAQItem | null = null;
     let bestScore = 0;
-    
+
     const messageWords = userMessage.split(/\s+/);
-    
+
     faqs.forEach(faq => {
       let score = 0;
       const keywords = faq.keywords || [];
       const faqQuestion = faq.question.toLowerCase();
       const faqAnswer = faq.answer.toLowerCase();
-      
+
       if (faqQuestion.includes(userMessage) || userMessage.includes(faqQuestion)) {
         score += 30;
       }
-      
+
       let keywordMatches = 0;
       keywords.forEach(keyword => {
         const keywordLower = keyword.toLowerCase();
-        
+
         const exactRegex = new RegExp(`\\b${keywordLower}\\b`, 'i');
         if (exactRegex.test(userMessage)) {
           keywordMatches++;
@@ -506,24 +506,24 @@ const FAQChatbot = () => {
           });
         }
       });
-      
+
       if (/che\s+\w+\s+(fate|fai|offrite)/i.test(userMessage)) {
         if (userMessage.includes('grafic') && keywords.includes('grafica')) score += 20;
         if (userMessage.includes('video') && keywords.includes('video')) score += 20;
         if (userMessage.includes('siti') && keywords.includes('sito')) score += 20;
         if (userMessage.includes('logo') && keywords.includes('logo')) score += 20;
       }
-      
+
       if (/(quanto|prezzo|costo|costa)/.test(userMessage)) {
         if (keywords.includes('prezzo') || keywords.includes('costa') || keywords.includes('costo')) {
           score += 8;
         }
       }
-      
+
       if (keywordMatches > 1) {
         score += keywordMatches * 4;
       }
-      
+
       if (score < 10) {
         messageWords.forEach(word => {
           if (word.length > 4 && faqAnswer.includes(word)) {
@@ -531,27 +531,27 @@ const FAQChatbot = () => {
           }
         });
       }
-      
+
       if (score > bestScore) {
         bestScore = score;
         bestMatch = faq;
       }
     });
-    
+
     const response = (bestMatch && bestScore >= 8)
-      ? bestMatch.answer 
+      ? bestMatch.answer
       : "Non ho trovato una risposta esatta, ma posso aiutarti! Prova a riformulare la domanda o seleziona una delle domande suggerite. Oppure contattaci direttamente: 📞 +39 3488664662 | ✉️ info.singularityy@gmail.com - Risposta entro 24h!";
-    
+
     setTimeout(() => {
       setMessages(prev => [...prev, { text: response, isUser: false }]);
     }, 500);
-    
+
     setInputValue('');
   };
 
   const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!contactData.name || !contactData.email || !contactData.service || !contactData.message) {
       toast({
         title: "Campi obbligatori",
@@ -560,9 +560,9 @@ const FAQChatbot = () => {
       });
       return;
     }
-    
+
     setIsSubmitting(true);
-    
+
     try {
       await emailjs.send(
         'service_gq3q0im',
@@ -577,24 +577,24 @@ const FAQChatbot = () => {
         'yIkPy6kgvBrQUOeJy'
       );
 
-      setMessages(prev => [...prev, { 
-        text: "✅ Richiesta inviata con successo! Ti contatteremo entro 24 ore. Grazie per averci scelto! 🚀", 
-        isUser: false 
+      setMessages(prev => [...prev, {
+        text: "✅ Richiesta inviata con successo! Ti contatteremo entro 24 ore. Grazie per averci scelto! 🚀",
+        isUser: false
       }]);
-      
+
       toast({
         title: "Messaggio inviato!",
         description: "Ti contatteremo al più presto.",
       });
-      
+
       setContactData({ name: '', email: '', service: '', message: '' });
       setShowContactForm(false);
     } catch (error) {
-      setMessages(prev => [...prev, { 
-        text: "❌ Si è verificato un errore. Puoi contattarci direttamente: 📞 +39 3488664662 | ✉️ info.singularityy@gmail.com", 
-        isUser: false 
+      setMessages(prev => [...prev, {
+        text: "❌ Si è verificato un errore. Puoi contattarci direttamente: 📞 +39 3488664662 | ✉️ info.singularityy@gmail.com",
+        isUser: false
       }]);
-      
+
       toast({
         title: "Errore nell'invio",
         description: "Riprova o contattaci direttamente.",
@@ -638,7 +638,7 @@ const FAQChatbot = () => {
               <h3 className="font-bold text-foreground">Assistente FAQ</h3>
               <p className="text-xs text-muted-foreground">Risposte immediate</p>
             </div>
-            <button 
+            <button
               onClick={resetChat}
               className="text-xs text-primary hover:underline"
             >
@@ -653,11 +653,10 @@ const FAQChatbot = () => {
                 className={`flex ${msg.isUser ? 'justify-end' : 'justify-start'}`}
               >
                 <div
-                  className={`max-w-[80%] p-3 rounded-2xl text-sm ${
-                    msg.isUser
+                  className={`max-w-[80%] p-3 rounded-2xl text-sm ${msg.isUser
                       ? 'bg-primary text-primary-foreground'
                       : 'bg-muted text-foreground'
-                  }`}
+                    }`}
                 >
                   {msg.text}
                 </div>
@@ -669,14 +668,14 @@ const FAQChatbot = () => {
                 <p className="text-xs text-muted-foreground mb-2">Domande frequenti:</p>
                 <button
                   onClick={() => {
-                    setMessages(prev => [...prev, { 
-                      text: "Come posso contattarvi?", 
-                      isUser: true 
+                    setMessages(prev => [...prev, {
+                      text: "Come posso contattarvi?",
+                      isUser: true
                     }]);
                     setTimeout(() => {
-                      setMessages(prev => [...prev, { 
-                        text: "Perfetto! Ti invio subito la richiesta di contatto. Compila i campi qui sotto e riceverai risposta entro 24 ore! ⬇️", 
-                        isUser: false 
+                      setMessages(prev => [...prev, {
+                        text: "Perfetto! Ti invio subito la richiesta di contatto. Compila i campi qui sotto e riceverai risposta entro 24 ore! ⬇️",
+                        isUser: false
                       }]);
                       setShowContactForm(true);
                       setShowSuggestions(false);
@@ -748,7 +747,7 @@ const FAQChatbot = () => {
                     required
                   />
                 </div>
-                <Button 
+                <Button
                   type="submit"
                   disabled={isSubmitting}
                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"

@@ -37,15 +37,9 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://singularitydream.it/about</loc>
-    <lastmod>2025-01-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://singularitydream.it/social-commitment</loc>
-    <lastmod>2025-01-26</lastmod>
+    <lastmod>2025-02-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
 </urlset>

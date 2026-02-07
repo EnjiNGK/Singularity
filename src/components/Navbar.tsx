@@ -56,14 +56,14 @@ const Navbar = () => {
   const renderNavLink = (link: any) => {
     const IconComponent = link.icon;
     return (
-      <Link 
-        key={link.name} 
-        to={link.path} 
+      <Link
+        key={link.name}
+        to={link.path}
         className={`${isActiveLink(link.path)} flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-300 group hover:bg-accent/20`}
       >
-        <IconComponent 
-          size={16} 
-          className="transition-all duration-300 group-hover:scale-110 group-hover:rotate-3" 
+        <IconComponent
+          size={16}
+          className="transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
         />
         <span className="hidden lg:inline">{link.name}</span>
       </Link>
@@ -71,24 +71,23 @@ const Navbar = () => {
   };
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled 
-          ? 'py-2 md:py-3 shadow-2xl bg-background/95 border-b border-border' 
-          : 'py-3 md:py-5 bg-background/70'
-      } backdrop-blur-md`}
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
+        ? 'py-2 md:py-3 shadow-2xl bg-background/95 border-b border-border'
+        : 'py-3 md:py-5 bg-background/70'
+        } backdrop-blur-md`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
-            <button 
-              onClick={handleLogoClick} 
+            <button
+              onClick={handleLogoClick}
               className="flex items-center space-x-2 cursor-pointer hover:scale-105 transition-transform duration-300 group"
               aria-label="Go to Home"
             >
-              <img 
-                src="/images/logo.png" 
-                alt="Singularity Dream Logo - Servizi digitali professionali" 
+              <img
+                src="/images/logo.png"
+                alt="Singularity Dream Logo - Servizi digitali professionali"
                 className="h-10 md:h-12 w-auto transition-all duration-300 group-hover:drop-shadow-lg"
               />
               <span className="text-foreground font-bold text-lg md:text-xl transition-all duration-300 group-hover:text-primary">
@@ -97,7 +96,7 @@ const Navbar = () => {
             </button>
           </div>
 
-          <nav 
+          <nav
             className="hidden md:flex items-center space-x-2 lg:space-x-4 rounded-full px-4 py-2 bg-card/80 backdrop-blur-md border border-border"
           >
             {navLinks.map(renderNavLink)}
@@ -127,7 +126,7 @@ const Navbar = () => {
       </div>
 
       {mobileMenuOpen && (
-        <nav 
+        <nav
           className="md:hidden animate-fade-in bg-background/98 backdrop-blur-xl border-t border-border"
         >
           <div className="p-4 space-y-2">
@@ -137,9 +136,8 @@ const Navbar = () => {
                 <Link
                   key={link.name}
                   to={link.path}
-                  className={`${isActiveLink(link.path)} py-3 px-4 block rounded-xl transition-all duration-300 hover:scale-105 flex items-center gap-3 ${
-                    location.pathname === link.path ? 'bg-primary/20 border border-primary/30' : 'bg-card/50'
-                  }`}
+                  className={`${isActiveLink(link.path)} py-3 px-4 block rounded-xl transition-all duration-300 hover:scale-105 flex items-center gap-3 ${location.pathname === link.path ? 'bg-primary/20 border border-primary/30' : 'bg-card/50'
+                    }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <IconComponent size={20} className="text-nexrank-purple" />
