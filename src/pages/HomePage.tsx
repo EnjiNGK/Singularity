@@ -41,7 +41,7 @@ const HomePage = () => {
 
             <ScrollReveal delay={0.3}>
               <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-                Grafica, siti web e video che raccontano <span className="whitespace-nowrap">chi sei</span>
+                Grafica, siti web e video che raccontano <span className="whitespace-nowrap">chi sei </span>
                 <br className="hidden md:block" />
                 e aiutano il tuo progetto a crescere davvero.
               </p>
@@ -146,7 +146,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="pt-14 md:pt-18 pb-4 relative compressed-section">
+      <section className="pt-12 md:pt-14 pb-4 relative compressed-section">
         <div className="section-container relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <ScrollReveal>
