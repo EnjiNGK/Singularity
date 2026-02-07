@@ -543,7 +543,7 @@
 
 @media (max-width: 640px) {
   .hero-text {
-    @apply text-3xl;
+    @apply text-4xl;
     line-height: 1.2;
   }
   
@@ -563,11 +563,16 @@
   .primary-button-glow {
     @apply text-base px-6 py-3;
   }
+  
+  .compressed-section {
+    margin-top: -60px !important;
+    padding-top: 40px !important;
+  }
 }
 
 @media (max-width: 480px) {
   .hero-text {
-    @apply text-2xl;
+    @apply text-3xl;
   }
   
   .subtitle-text {

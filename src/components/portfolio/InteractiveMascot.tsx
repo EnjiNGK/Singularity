@@ -17,17 +17,17 @@ const InteractiveMascot: React.FC<InteractiveMascotProps> = ({ onHover }) => {
         const rect = containerRef.current.getBoundingClientRect();
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height * 0.28;
-        
+
         const deltaX = e.clientX - centerX;
         const deltaY = e.clientY - centerY;
-        
+
         const maxMove = 10;
         const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
         const clampedDistance = Math.min(distance / 80, 1);
-        
+
         const normalizedX = distance > 0 ? (deltaX / distance) * clampedDistance * maxMove : 0;
         const normalizedY = distance > 0 ? (deltaY / distance) * clampedDistance * maxMove : 0;
-        
+
         setEyePosition({ x: normalizedX, y: normalizedY });
       }
     };
@@ -57,17 +57,18 @@ const InteractiveMascot: React.FC<InteractiveMascotProps> = ({ onHover }) => {
   };
 
   return (
-    <div 
+    <div
       ref={containerRef}
-      className="relative w-full max-w-xs mx-auto cursor-pointer"
+      className="relative w-full max-w-[180px] sm:max-w-xs mx-auto cursor-pointer"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={() => setIsHovering(!isHovering)}
     >
       <motion.div
         className="absolute -top-32 sm:-top-28 left-0 right-0 mx-auto z-20 w-[90%] max-w-[220px] sm:max-w-[260px]"
         initial={{ opacity: 0, y: 10, scale: 0.95 }}
-        animate={{ 
-          opacity: isHovering ? 1 : 0, 
+        animate={{
+          opacity: isHovering ? 1 : 0,
           y: isHovering ? 0 : 10,
           scale: isHovering ? 1 : 0.95
         }}
@@ -112,12 +113,12 @@ const InteractiveMascot: React.FC<InteractiveMascotProps> = ({ onHover }) => {
             <stop offset="100%" stopColor="#312e81" />
           </linearGradient>
           <filter id="innerShadow" x="-20%" y="-20%" width="140%" height="140%">
-            <feOffset dx="0" dy="2"/>
-            <feGaussianBlur stdDeviation="2" result="offset-blur"/>
-            <feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse"/>
-            <feFlood floodColor="black" floodOpacity="0.15" result="color"/>
-            <feComposite operator="in" in="color" in2="inverse" result="shadow"/>
-            <feComposite operator="over" in="shadow" in2="SourceGraphic"/>
+            <feOffset dx="0" dy="2" />
+            <feGaussianBlur stdDeviation="2" result="offset-blur" />
+            <feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse" />
+            <feFlood floodColor="black" floodOpacity="0.15" result="color" />
+            <feComposite operator="in" in="color" in2="inverse" result="shadow" />
+            <feComposite operator="over" in="shadow" in2="SourceGraphic" />
           </filter>
         </defs>
 
@@ -130,7 +131,7 @@ const InteractiveMascot: React.FC<InteractiveMascotProps> = ({ onHover }) => {
           <motion.circle
             cx="100" cy="8" r="6"
             fill="url(#robotLight)"
-            animate={{ 
+            animate={{
               boxShadow: isHovering ? '0 0 15px rgba(167, 139, 250, 0.8)' : 'none'
             }}
           />
@@ -150,7 +151,7 @@ const InteractiveMascot: React.FC<InteractiveMascotProps> = ({ onHover }) => {
           rx="28"
           fill="url(#robotBody)"
         />
-        
+
         <rect
           x="50"
           y="40"
@@ -189,7 +190,7 @@ const InteractiveMascot: React.FC<InteractiveMascotProps> = ({ onHover }) => {
             fill="#c4b5fd"
             style={{ transition: 'height 0.08s ease' }}
           />
-          
+
           <rect
             x="108"
             y="70"
@@ -208,7 +209,7 @@ const InteractiveMascot: React.FC<InteractiveMascotProps> = ({ onHover }) => {
               height="6"
               rx="3"
               fill="#ffffff"
-              animate={{ 
+              animate={{
                 x: 76 + eyePosition.x,
                 y: 72 + eyePosition.y * 0.3
               }}
@@ -224,7 +225,7 @@ const InteractiveMascot: React.FC<InteractiveMascotProps> = ({ onHover }) => {
               height="6"
               rx="3"
               fill="#ffffff"
-              animate={{ 
+              animate={{
                 x: 114 + eyePosition.x,
                 y: 72 + eyePosition.y * 0.3
               }}
@@ -246,7 +247,7 @@ const InteractiveMascot: React.FC<InteractiveMascotProps> = ({ onHover }) => {
           }}
           transition={{ duration: 0.2 }}
         />
-        
+
         <motion.g
           animate={{ opacity: isHovering ? 1 : 0.5 }}
         >
@@ -276,7 +277,7 @@ const InteractiveMascot: React.FC<InteractiveMascotProps> = ({ onHover }) => {
           rx="15"
           fill="url(#robotBody)"
         />
-        
+
         <rect
           x="75"
           y="165"
@@ -291,7 +292,7 @@ const InteractiveMascot: React.FC<InteractiveMascotProps> = ({ onHover }) => {
           cy="192"
           r="15"
           fill="url(#robotLight)"
-          animate={{ 
+          animate={{
             opacity: [0.7, 1, 0.7],
           }}
           transition={{ duration: 2, repeat: Infinity }}
@@ -301,7 +302,7 @@ const InteractiveMascot: React.FC<InteractiveMascotProps> = ({ onHover }) => {
           cy="192"
           r="8"
           fill="#c4b5fd"
-          animate={{ 
+          animate={{
             scale: [1, 1.1, 1],
           }}
           transition={{ duration: 2, repeat: Infinity }}
@@ -315,7 +316,7 @@ const InteractiveMascot: React.FC<InteractiveMascotProps> = ({ onHover }) => {
           <rect x="35" y="160" width="22" height="60" rx="11" fill="url(#robotBody)" />
           <rect x="38" y="220" width="16" height="22" rx="8" fill="url(#robotLight)" />
         </motion.g>
-        
+
         <motion.g
           animate={{ rotate: isHovering ? 8 : 0 }}
           style={{ transformOrigin: '150px 160px' }}
@@ -350,7 +351,7 @@ const InteractiveMascot: React.FC<InteractiveMascotProps> = ({ onHover }) => {
         </motion.div>
       ))}
 
-      <motion.div 
+      <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-52 h-72 bg-primary/20 rounded-3xl blur-[50px] -z-10"
         animate={{
           scale: isHovering ? 1.1 : 1,
