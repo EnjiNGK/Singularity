@@ -1,0 +1,6 @@
+
+# Serve sitemap.xml correctly
+/sitemap.xml /sitemap.xml 200
+
+# SPA fallback - this should be last
+/* /index.html 200
