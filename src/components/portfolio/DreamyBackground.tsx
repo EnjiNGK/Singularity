@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 const DreamyBackground: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { scrollY } = useScroll();
-  
+
   const cloudsY1 = useTransform(scrollY, [0, 1500], [0, 200]);
   const cloudsY2 = useTransform(scrollY, [0, 1500], [0, 150]);
   const cloudsY3 = useTransform(scrollY, [0, 1500], [0, 100]);
@@ -13,7 +13,7 @@ const DreamyBackground: React.FC = () => {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    
+
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
@@ -54,7 +54,7 @@ const DreamyBackground: React.FC = () => {
 
     const drawStar = (star: Star, currentOpacity: number) => {
       ctx.fillStyle = `rgba(200, 190, 255, ${currentOpacity})`;
-      
+
       if (star.type === 'dot') {
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
@@ -114,7 +114,7 @@ const DreamyBackground: React.FC = () => {
 
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden">
-      <div 
+      <div
         className="absolute inset-0 dark:block hidden"
         style={{
           background: `linear-gradient(180deg, 
@@ -126,7 +126,7 @@ const DreamyBackground: React.FC = () => {
           )`,
         }}
       />
-      <div 
+      <div
         className="absolute inset-0 light:block dark:hidden"
         style={{
           background: `linear-gradient(180deg, 
@@ -145,7 +145,7 @@ const DreamyBackground: React.FC = () => {
           background: 'radial-gradient(circle, rgba(155, 135, 245, 0.4) 0%, transparent 60%)',
           filter: 'blur(80px)',
         }}
-        animate={{ 
+        animate={{
           scale: [1, 1.1, 1],
           opacity: [0.25, 0.35, 0.25]
         }}
@@ -157,7 +157,7 @@ const DreamyBackground: React.FC = () => {
           background: 'radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, transparent 60%)',
           filter: 'blur(100px)',
         }}
-        animate={{ 
+        animate={{
           scale: [1.1, 1, 1.1],
           opacity: [0.2, 0.3, 0.2]
         }}
@@ -175,9 +175,9 @@ const DreamyBackground: React.FC = () => {
         style={{ y: cloudsY1, opacity: cloudsOpacity, zIndex: 2 }}
       >
         <div className="absolute top-[55vh] left-0 right-0 overflow-hidden">
-          <svg 
-            viewBox="0 0 1440 400" 
-            className="w-full md:w-full h-[200px] md:h-auto scale-[2] md:scale-100 origin-center" 
+          <svg
+            viewBox="0 0 1440 400"
+            className="w-full md:w-full h-[200px] md:h-auto scale-[1.3] md:scale-100 origin-center"
             preserveAspectRatio="xMidYMid slice"
           >
             <defs>
@@ -207,10 +207,10 @@ const DreamyBackground: React.FC = () => {
         className="absolute left-0 right-0 w-full pointer-events-none"
         style={{ y: cloudsY2, opacity: cloudsOpacity, zIndex: 3 }}
       >
-        <div className="absolute top-[62vh] md:top-[65vh] left-0 right-0 overflow-hidden">
-          <svg 
-            viewBox="0 0 1440 350" 
-            className="w-full md:w-full h-[180px] md:h-auto scale-[2] md:scale-100 origin-center" 
+        <div className="absolute top-[60vh] md:top-[65vh] left-0 right-0 overflow-hidden">
+          <svg
+            viewBox="0 0 1440 350"
+            className="w-full md:w-full h-[180px] md:h-auto scale-[1.3] md:scale-100 origin-center"
             preserveAspectRatio="xMidYMid slice"
           >
             <defs>
@@ -240,10 +240,10 @@ const DreamyBackground: React.FC = () => {
         className="absolute left-0 right-0 w-full pointer-events-none"
         style={{ y: cloudsY3, opacity: cloudsOpacity, zIndex: 4 }}
       >
-        <div className="absolute top-[68vh] md:top-[75vh] left-0 right-0 overflow-hidden">
-          <svg 
-            viewBox="0 0 1440 300" 
-            className="w-full md:w-full h-[160px] md:h-auto scale-[2] md:scale-100 origin-center" 
+        <div className="absolute top-[65vh] md:top-[75vh] left-0 right-0 overflow-hidden">
+          <svg
+            viewBox="0 0 1440 300"
+            className="w-full md:w-full h-[160px] md:h-auto scale-[1.3] md:scale-100 origin-center"
             preserveAspectRatio="xMidYMid slice"
           >
             <defs>
@@ -269,7 +269,7 @@ const DreamyBackground: React.FC = () => {
         </div>
       </motion.div>
 
-      <div 
+      <div
         className="absolute bottom-0 left-0 right-0 h-[30vh] pointer-events-none"
         style={{
           background: 'linear-gradient(to bottom, transparent, hsl(var(--background)))',

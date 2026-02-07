@@ -128,7 +128,7 @@ const HomePage = () => {
 
             <ScrollReveal delay={0.2}>
               <div className="compressed-video">
-                <div className="glass-card-enhanced p-4 mb-16 md:mb-20 hover-lift-glow">
+                <div className="glass-card-enhanced p-4 mb-10 md:mb-20 hover-lift-glow">
                   <video
                     autoPlay
                     loop
@@ -146,7 +146,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="pt-12 md:pt-14 pb-4 relative compressed-section">
+      <section className="pt-8 md:pt-14 pb-4 relative compressed-section">
         <div className="section-container relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <ScrollReveal>
