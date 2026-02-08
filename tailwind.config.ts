@@ -63,7 +63,7 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				nexrank: {
+				singularity: {
 					purple: '#9b87f5',
 					violet: '#8B5CF6',
 					indigo: '#4F46E5',
@@ -131,8 +131,8 @@ export default {
 				'button-gradient': 'linear-gradient(90deg, #9b87f5 0%, #8B5CF6 100%)'
 			},
 			boxShadow: {
-				'neon': '0 0 5px theme("colors.nexrank.violet"), 0 0 20px rgba(139, 92, 246, 0.3)',
-				'neon-lg': '0 0 10px theme("colors.nexrank.violet"), 0 0 30px rgba(139, 92, 246, 0.5)',
+				'neon': '0 0 5px theme("colors.singularity.violet"), 0 0 20px rgba(139, 92, 246, 0.3)',
+				'neon-lg': '0 0 10px theme("colors.singularity.violet"), 0 0 30px rgba(139, 92, 246, 0.5)',
 				'card': '0 0 20px rgba(0, 0, 0, 0.2)'
 			},
 			typography: {

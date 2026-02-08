@@ -25,11 +25,11 @@ const checkRateLimit = (): boolean => {
   try {
     const stored = localStorage.getItem(RATE_LIMIT_KEY);
     if (!stored) return true;
-    
+
     const submissions: number[] = JSON.parse(stored);
     const now = Date.now();
     const recentSubmissions = submissions.filter(time => now - time < RATE_LIMIT_WINDOW_MS);
-    
+
     return recentSubmissions.length < MAX_SUBMISSIONS;
   } catch {
     return true;
@@ -77,7 +77,7 @@ const ContactPage = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (honeypot) {
       toast({
         title: "Messaggio inviato!",
@@ -85,7 +85,7 @@ const ContactPage = () => {
       });
       return;
     }
-    
+
     if (!checkRateLimit()) {
       toast({
         title: "Troppi tentativi",
@@ -94,7 +94,7 @@ const ContactPage = () => {
       });
       return;
     }
-    
+
     const validationResult = contactFormSchema.safeParse(formData);
     if (!validationResult.success) {
       const errors: Record<string, string> = {};
@@ -111,7 +111,7 @@ const ContactPage = () => {
       });
       return;
     }
-    
+
     setIsSubmitting(true);
 
     try {
@@ -128,7 +128,7 @@ const ContactPage = () => {
       );
 
       recordSubmission();
-      
+
       toast({
         title: "Messaggio inviato!",
         description: "Ti contatteremo al più presto per discutere del tuo progetto.",
@@ -151,17 +151,17 @@ const ContactPage = () => {
     <div className="overflow-hidden">
       <section className="pt-32 pb-20 relative min-h-screen flex items-center">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-nexrank-violet/30 rounded-full blur-3xl animate-float opacity-60"></div>
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-singularity-violet/30 rounded-full blur-3xl animate-float opacity-60"></div>
           <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-blue-600/25 rounded-full blur-3xl animate-pulse-slow opacity-50"></div>
-          <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-nexrank-purple/20 rounded-full blur-3xl animate-float opacity-40" style={{animationDelay: '2s'}}></div>
-          
-          <div className="absolute inset-0 bg-gradient-to-br from-nexrank-violet/10 via-transparent to-blue-600/10 animated-gradient"></div>
-          
+          <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-singularity-purple/20 rounded-full blur-3xl animate-float opacity-40" style={{ animationDelay: '2s' }}></div>
+
+          <div className="absolute inset-0 bg-gradient-to-br from-singularity-violet/10 via-transparent to-blue-600/10 animated-gradient"></div>
+
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full">
-            <div className="absolute inset-0 bg-gradient-radial from-nexrank-violet/5 via-transparent to-transparent opacity-70 animate-pulse-slow"></div>
+            <div className="absolute inset-0 bg-gradient-radial from-singularity-violet/5 via-transparent to-transparent opacity-70 animate-pulse-slow"></div>
           </div>
         </div>
-        
+
         <div className="section-container relative z-10">
           <div className="text-center">
             <ScrollReveal delay={0.1}>
@@ -169,14 +169,14 @@ const ContactPage = () => {
                 Contattaci
               </h1>
             </ScrollReveal>
-            
+
             <ScrollReveal delay={0.3}>
               <p className="subtitle-text mb-8">
-                Hai un progetto in mente? Parliamone insieme. 
+                Hai un progetto in mente? Parliamone insieme.
                 Siamo qui per trasformare le tue idee in realtà.
               </p>
             </ScrollReveal>
-            
+
             <ScrollReveal delay={0.5}>
               <button
                 onClick={() => {
@@ -198,13 +198,13 @@ const ContactPage = () => {
 
       <section id="contact-form-section" className="py-20 relative">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 right-0 w-80 h-80 bg-nexrank-violet/10 rounded-full blur-3xl animate-pulse-slow opacity-30"></div>
+          <div className="absolute top-1/4 right-0 w-80 h-80 bg-singularity-violet/10 rounded-full blur-3xl animate-pulse-slow opacity-30"></div>
         </div>
-        
+
         <div className="section-container relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-1 space-y-6">
-              <div className="animate-slide-up scroll-animate" style={{animationDelay: '0.1s'}}>
+              <div className="animate-slide-up scroll-animate" style={{ animationDelay: '0.1s' }}>
                 <Card className="glass-card-enhanced hover-lift-glow">
                   <CardContent className="p-6">
                     <div className="flex items-center space-x-4">
@@ -220,7 +220,7 @@ const ContactPage = () => {
                 </Card>
               </div>
 
-              <div className="animate-slide-up scroll-animate" style={{animationDelay: '0.2s'}}>
+              <div className="animate-slide-up scroll-animate" style={{ animationDelay: '0.2s' }}>
                 <Card className="glass-card-enhanced hover-lift-glow">
                   <CardContent className="p-6">
                     <div className="flex items-center space-x-4">
@@ -236,7 +236,7 @@ const ContactPage = () => {
                 </Card>
               </div>
 
-              <div className="animate-slide-up scroll-animate" style={{animationDelay: '0.3s'}}>
+              <div className="animate-slide-up scroll-animate" style={{ animationDelay: '0.3s' }}>
                 <Card className="glass-card-enhanced hover-lift-glow">
                   <CardContent className="p-6">
                     <div className="flex items-center space-x-4">
@@ -254,7 +254,7 @@ const ContactPage = () => {
             </div>
 
             <div className="lg:col-span-2">
-              <Card className="glass-card-enhanced animate-slide-up scroll-animate" style={{animationDelay: '0.4s'}}>
+              <Card className="glass-card-enhanced animate-slide-up scroll-animate" style={{ animationDelay: '0.4s' }}>
                 <CardHeader>
                   <CardTitle className="text-2xl text-foreground">Inizia il tuo progetto</CardTitle>
                   <CardDescription className="text-muted-foreground">
@@ -272,7 +272,7 @@ const ContactPage = () => {
                       tabIndex={-1}
                       autoComplete="off"
                     />
-                    
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">

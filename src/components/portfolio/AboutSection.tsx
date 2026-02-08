@@ -10,7 +10,7 @@ const AboutSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         {/*  */}
         <div className="absolute -inset-4 md:-inset-6 rounded-3xl bg-background/60 dark:bg-background/40 backdrop-blur-sm light:bg-white/80 light:shadow-xl" />
-        
+
         <div className="relative z-10 grid md:grid-cols-2 gap-12 lg:gap-20 items-center py-8 md:py-12">
           <motion.div
             className="order-2 md:order-1"
@@ -58,8 +58,8 @@ const AboutSection: React.FC = () => {
             >
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full overflow-hidden border-2 border-primary/30 flex-shrink-0">
-                  <img 
-                    src="/lovable-uploads/7ac3667c-b807-4d13-9ded-e5038158daa9.png" 
+                  <img
+                    src="/singularitydream-uploads/7ac3667c-b807-4d13-9ded-e5038158daa9.png"
                     alt="Lorenzo"
                     className="w-full h-full object-cover"
                   />
@@ -71,8 +71,8 @@ const AboutSection: React.FC = () => {
               </div>
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full overflow-hidden border-2 border-primary/30 flex-shrink-0">
-                  <img 
-                    src="/lovable-uploads/355f7e8e-eadc-4c20-b8d3-a150790a2885.png" 
+                  <img
+                    src="/singularitydream-uploads/355f7e8e-eadc-4c20-b8d3-a150790a2885.png"
                     alt="Luca"
                     className="w-full h-full object-cover"
                   />

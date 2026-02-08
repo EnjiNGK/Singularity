@@ -25,7 +25,7 @@ const Footer = () => {
 
   return (
     <footer className="relative py-12 overflow-hidden">
-      <div className="absolute inset-0 dark:bg-nexrank-dark-blue/80 light:bg-slate-100/95 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 dark:bg-singularity-dark-blue/80 light:bg-slate-100/95 backdrop-blur-sm"></div>
 
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 dark:bg-primary/20 light:bg-primary/10 rounded-full blur-3xl animate-float opacity-30"></div>

@@ -140,7 +140,7 @@ const Navbar = () => {
                     }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <IconComponent size={20} className="text-nexrank-purple" />
+                  <IconComponent size={20} className="text-primary" />
                   <span>{link.name}</span>
                 </Link>
               );

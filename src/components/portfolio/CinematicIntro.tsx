@@ -27,7 +27,7 @@ const slides: Slide[] = [
     title: 'Lorenzo, 18 anni',
     subtitle: 'Fondatore & Creative Director',
     description: 'Appassionato di tecnologia e design dal giorno zero.',
-    image: '/lovable-uploads/7ac3667c-b807-4d13-9ded-e5038158daa9.png',
+    image: '/singularitydream-uploads/7ac3667c-b807-4d13-9ded-e5038158daa9.png',
   },
   {
     id: 2,
@@ -35,7 +35,7 @@ const slides: Slide[] = [
     title: 'Luca, 19 anni',
     subtitle: 'Co-Founder & Visual Designer',
     description: 'Creatività visiva e impegno sociale. Il guadagno è secondario.',
-    image: '/lovable-uploads/355f7e8e-eadc-4c20-b8d3-a150790a2885.png',
+    image: '/singularitydream-uploads/355f7e8e-eadc-4c20-b8d3-a150790a2885.png',
   },
   {
     id: 3,
@@ -78,7 +78,7 @@ const CinematicIntro: React.FC<CinematicIntroProps> = ({ onComplete }) => {
     const updateProgress = () => {
       const elapsed = Date.now() - startTime;
       const newProgress = initialProgress + (elapsed / SLIDE_DURATION) * 100;
-      
+
       if (newProgress >= 100) {
         if (currentSlide < slides.length - 1) {
           setCurrentSlide(prev => prev + 1);
@@ -139,7 +139,7 @@ const CinematicIntro: React.FC<CinematicIntroProps> = ({ onComplete }) => {
         >
           <div className="absolute inset-0 bg-gradient-conic from-primary/20 via-transparent to-accent/20 rounded-full blur-3xl" />
         </motion.div>
-        
+
         <motion.div
           className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/30 rounded-full blur-[100px]"
           animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.5, 0.3] }}
@@ -159,8 +159,8 @@ const CinematicIntro: React.FC<CinematicIntroProps> = ({ onComplete }) => {
               <motion.div
                 className="absolute inset-0 bg-primary"
                 initial={{ scaleX: 0 }}
-                animate={{ 
-                  scaleX: index < currentSlide ? 1 : index === currentSlide ? progress / 100 : 0 
+                animate={{
+                  scaleX: index < currentSlide ? 1 : index === currentSlide ? progress / 100 : 0
                 }}
                 style={{ originX: 0 }}
                 transition={{ duration: 0.1 }}
@@ -196,13 +196,12 @@ const CinematicIntro: React.FC<CinematicIntroProps> = ({ onComplete }) => {
               setCurrentSlide(index);
               setProgress(0);
             }}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              index === currentSlide
+            className={`h-2 rounded-full transition-all duration-300 ${index === currentSlide
                 ? 'w-8 bg-primary'
                 : index < currentSlide
-                ? 'w-2 bg-primary/50'
-                : 'w-2 bg-muted-foreground/30'
-            }`}
+                  ? 'w-2 bg-primary/50'
+                  : 'w-2 bg-muted-foreground/30'
+              }`}
             whileHover={{ scale: 1.2 }}
           />
         ))}
@@ -232,9 +231,9 @@ const CinematicIntro: React.FC<CinematicIntroProps> = ({ onComplete }) => {
                       animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
                       transition={{ duration: 3, repeat: Infinity }}
                     />
-                    <img 
-                      src="/images/logo.png" 
-                      alt="Singularity Dream" 
+                    <img
+                      src="/images/logo.png"
+                      alt="Singularity Dream"
                       className="w-20 h-20 md:w-24 md:h-24 relative z-10 object-contain"
                     />
                   </div>
@@ -264,14 +263,14 @@ const CinematicIntro: React.FC<CinematicIntroProps> = ({ onComplete }) => {
                   >
                     {currentSlideData.title}
                   </motion.p>
-                  
+
                   <motion.h1
                     className="text-5xl md:text-7xl lg:text-8xl font-bold relative"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.4 }}
                   >
-                    <motion.span 
+                    <motion.span
                       className="bg-gradient-to-r from-primary via-pink-400 to-accent bg-clip-text text-transparent bg-[length:200%_auto] animate-[gradient_4s_linear_infinite] relative"
                       initial={{ opacity: 0, y: 40 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -279,7 +278,7 @@ const CinematicIntro: React.FC<CinematicIntroProps> = ({ onComplete }) => {
                     >
                       {currentSlideData.highlight}
                     </motion.span>
-                    
+
                     <motion.span
                       className="absolute -top-4 -right-4 md:-top-6 md:-right-6 text-2xl md:text-3xl"
                       initial={{ opacity: 0, scale: 0 }}

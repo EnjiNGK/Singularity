@@ -134,6 +134,7 @@ const HomePage = () => {
                     loop
                     muted
                     playsInline
+                    preload="metadata"
                     className="w-full h-auto rounded-lg"
                   >
                     <source src="/videos/singularity-dream-showreel.mp4" type="video/mp4" />
@@ -192,6 +193,7 @@ const HomePage = () => {
                     <img
                       src={graphicsService}
                       alt="Servizi grafica professionale Italia"
+                      loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                   </div>
@@ -221,6 +223,7 @@ const HomePage = () => {
                     <img
                       src={webDesignService}
                       alt="Creazione siti web professionali Italia"
+                      loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                   </div>
@@ -250,6 +253,7 @@ const HomePage = () => {
                     <img
                       src={videoService}
                       alt="Video editing professionale Italia"
+                      loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                   </div>
