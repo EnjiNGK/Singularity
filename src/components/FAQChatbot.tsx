@@ -28,7 +28,13 @@ const FAQChatbot = () => {
   const [inputValue, setInputValue] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(true);
   const [showContactForm, setShowContactForm] = useState(false);
-  const [contactData, setContactData] = useState({ name: '', email: '', service: '', message: '' });
+  const [contactData, setContactData] = useState({
+    name: '',
+    email: '',
+    service: '',
+    message: '',
+    privacyAccepted: false
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
@@ -159,8 +165,17 @@ const FAQChatbot = () => {
     if (!contactData.name || !contactData.email || !contactData.service || !contactData.message) {
       toast({
         title: "Campi obbligatori",
-        description: "Per favore compila tutti i campi.",
+        description: "Per favore compila tutti i campi obbligatori.",
         variant: "destructive",
+      });
+      return;
+    }
+
+    if (!contactData.privacyAccepted) {
+      toast({
+        title: "Privacy necessaria",
+        description: "Devi accettare la Privacy Policy per procedere.",
+        variant: "destructive"
       });
       return;
     }
@@ -188,10 +203,10 @@ const FAQChatbot = () => {
 
       toast({
         title: "Messaggio inviato!",
-        description: "Ti contatteremo al più presto.",
+        description: "Ti risponderemo entro 24 ore!",
       });
 
-      setContactData({ name: '', email: '', service: '', message: '' });
+      setContactData({ name: '', email: '', service: '', message: '', privacyAccepted: false });
       setShowContactForm(false);
     } catch (error) {
       setMessages(prev => [...prev, {
@@ -213,7 +228,7 @@ const FAQChatbot = () => {
     setMessages([{ text: "Ciao! 👋 Sono l'assistente virtuale di Singularity Dream. Ho risposte immediate su servizi, prezzi, tempi, chi siamo e molto altro. Seleziona una domanda o scrivimi!", isUser: false }]);
     setShowSuggestions(true);
     setShowContactForm(false);
-    setContactData({ name: '', email: '', service: '', message: '' });
+    setContactData({ name: '', email: '', service: '', message: '', privacyAccepted: false });
   };
 
   return (
@@ -350,6 +365,19 @@ const FAQChatbot = () => {
                     className="w-full bg-background/50 border border-border/50 text-foreground text-sm rounded-md px-3 py-2 resize-none focus:outline-none focus:ring-2 focus:ring-primary"
                     required
                   />
+                </div>
+                <div className="flex items-start space-x-2 px-1 py-1">
+                  <input
+                    type="checkbox"
+                    id="chatbot-privacy"
+                    checked={contactData.privacyAccepted}
+                    onChange={(e) => setContactData({ ...contactData, privacyAccepted: e.target.checked })}
+                    className="mt-1 h-3.5 w-3.5 rounded border-border/50 bg-background/50 text-primary"
+                    required
+                  />
+                  <label htmlFor="chatbot-privacy" className="text-[10px] text-muted-foreground leading-tight">
+                    Accetto la <a href="/privacy-policy" target="_blank" className="text-primary hover:underline">Privacy Policy</a> *
+                  </label>
                 </div>
                 <Button
                   type="submit"

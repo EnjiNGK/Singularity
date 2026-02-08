@@ -137,6 +137,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li><Link to="/privacy-policy" className="dark:text-gray-400 light:text-slate-600 hover:text-primary transition-colors">Privacy Policy</Link></li>
               <li><Link to="/cookie-policy" className="dark:text-gray-400 light:text-slate-600 hover:text-primary transition-colors">Cookie Policy</Link></li>
+              <li><Link to="/accessibility" className="dark:text-gray-400 light:text-slate-600 hover:text-primary transition-colors">Dichiarazione di Accessibilità</Link></li>
               <li><Link to="/terms" className="dark:text-gray-400 light:text-slate-600 hover:text-primary transition-colors">Termini e Condizioni</Link></li>
             </ul>
           </div>
@@ -146,7 +147,7 @@ const Footer = () => {
           <div className="dark:text-gray-400 light:text-slate-600 text-sm space-y-3">
             <p>© {new Date().getFullYear()} Singularity. Tutti i diritti riservati.</p>
             <p className="text-xs leading-relaxed max-w-xl">
-              Attività svolta in forma saltuaria e occasionale ai sensi dell'art. 2222 c.c., senza obbligo di partita IVA. Per informazioni su collaborazioni occasionali, contattami
+              Attività professionale in fase di regolarizzazione con Partita IVA in corso di registrazione. Per informazioni su collaborazioni e consulenze, contattami.
             </p>
           </div>
           <div className="mt-2 md:mt-0 flex-shrink-0">

@@ -9,18 +9,18 @@ const TermsPage = () => {
         description="Termini e condizioni di utilizzo dei servizi digitali di Singularity Dream. Leggi le nostre condizioni per grafica, informatica e video editing."
         keywords="termini condizioni, servizi digitali, contratto servizi, condizioni utilizzo"
       />
-      
+
       <div className="min-h-screen relative overflow-hidden">
         <ImmersiveBackground />
-        
+
         <div className="relative z-10 pt-24 pb-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="backdrop-blur-md bg-background/80 dark:bg-background/60 rounded-2xl shadow-2xl border border-border/50 p-8 md:p-12">
-              
+
               <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary via-purple-500 to-pink-500 bg-clip-text text-transparent">
                 Termini e Condizioni di Servizio
               </h1>
-              
+
               <p className="text-muted-foreground mb-8">
                 Data di entrata in vigore: 28 novembre 2025
               </p>
@@ -29,7 +29,7 @@ const TermsPage = () => {
 
                 <section>
                   <p className="text-foreground/90 leading-relaxed">
-                    Benvenuto su singularitydream.it! Utilizzando questo sito web e i servizi offerti da Singularity Dream, 
+                    Benvenuto su singularitydream.it! Utilizzando questo sito web e i servizi offerti da Singularity Dream,
                     accetti i seguenti Termini e Condizioni. Se non sei d’accordo, ti invitiamo a non utilizzare il sito.
                   </p>
                 </section>
@@ -38,11 +38,11 @@ const TermsPage = () => {
                   <h2 className="text-2xl font-semibold text-foreground mb-4">1. Informazioni sul Fornitore del Servizio</h2>
                   <p className="text-foreground/90 leading-relaxed">
                     Singularity Dream opera come attività digitale online.
-                    <br/>
+                    <br />
                     <strong>Indirizzo legale:</strong> Via Augusto Righi 9, Italia
-                    <br/>
+                    <br />
                     <strong>Email:</strong> info.singularityy@gmail.com
-                    <br/>
+                    <br />
                     <strong>Telefono:</strong> +39 348 866 4662
                   </p>
                 </section>
@@ -68,7 +68,7 @@ const TermsPage = () => {
                   <h2 className="text-2xl font-semibold text-foreground mb-4">4. Prezzi, Preventivi e Pagamenti</h2>
                   <p className="text-foreground/90 leading-relaxed">
                     I prezzi vengono comunicati tramite preventivo personalizzato.
-                    Il pagamento può essere richiesto in anticipo o a progetto completato, secondo accordi. 
+                    Il pagamento può essere richiesto in anticipo o a progetto completato, secondo accordi.
                     Il pagamento completo trasferisce i diritti di utilizzo del materiale realizzato.
                   </p>
                 </section>
@@ -76,8 +76,8 @@ const TermsPage = () => {
                 <section>
                   <h2 className="text-2xl font-semibold text-foreground mb-4">5. Proprietà Intellettuale</h2>
                   <p className="text-foreground/90 leading-relaxed">
-                    Tutti i contenuti, materiali e produzioni digitali realizzati da Singularity Dream restano 
-                    di proprietà del fornitore fino al saldo completo. Al pagamento, i diritti di utilizzo 
+                    Tutti i contenuti, materiali e produzioni digitali realizzati da Singularity Dream restano
+                    di proprietà del fornitore fino al saldo completo. Al pagamento, i diritti di utilizzo
                     vengono concessi al cliente secondo quanto stabilito nel preventivo.
                   </p>
                 </section>
@@ -85,15 +85,17 @@ const TermsPage = () => {
                 <section>
                   <h2 className="text-2xl font-semibold text-foreground mb-4">6. Limitazione di Responsabilità</h2>
                   <p className="text-foreground/90 leading-relaxed">
-                    Singularity Dream non è responsabile per danni indiretti, perdita di dati, interruzioni dei servizi 
-                    o utilizzo improprio del materiale fornito. L’utente è responsabile dell’uso corretto dei contenuti ricevuti.
+                    Singularity Dream non è responsabile per danni indiretti, perdita di dati, interruzioni dei servizi
+                    o utilizzo improprio del materiale fornito. Per i servizi di assistenza informatica, il cliente è tenuto
+                    a effettuare un backup completo dei propri dati prima dell'intervento; Singularity Dream non si assume
+                    responsabilità per perdite accidentali di informazioni durante la riparazione o manutenzione.
                   </p>
                 </section>
 
                 <section>
                   <h2 className="text-2xl font-semibold text-foreground mb-4">7. Diritto di Recesso</h2>
                   <p className="text-foreground/90 leading-relaxed">
-                    L’utente può recedere dal servizio tramite comunicazione scritta. 
+                    L’utente può recedere dal servizio tramite comunicazione scritta.
                     Se il lavoro è già iniziato, saranno addebitati i costi proporzionali alle attività svolte.
                   </p>
                 </section>
@@ -111,7 +113,7 @@ const TermsPage = () => {
                   <h2 className="text-2xl font-semibold text-foreground mb-4">9. Modifiche ai Termini</h2>
                   <p className="text-foreground/90 leading-relaxed">
                     Singularity Dream può aggiornare i Termini e Condizioni in qualsiasi momento.
-                    Le modifiche hanno effetto dalla data di pubblicazione. È responsabilità dell’utente 
+                    Le modifiche hanno effetto dalla data di pubblicazione. È responsabilità dell’utente
                     verificare periodicamente eventuali aggiornamenti.
                   </p>
                 </section>
@@ -119,7 +121,7 @@ const TermsPage = () => {
                 <section>
                   <h2 className="text-2xl font-semibold text-foreground mb-4">10. Legge Applicabile</h2>
                   <p className="text-foreground/90 leading-relaxed">
-                    I presenti Termini sono regolati dalla legge italiana. 
+                    I presenti Termini sono regolati dalla legge italiana.
                     Per i consumatori, il foro competente è quello del luogo di residenza.
                   </p>
                 </section>
@@ -129,8 +131,8 @@ const TermsPage = () => {
                   <p className="text-foreground/90 leading-relaxed">
                     Per domande, chiarimenti o richieste relative ai presenti Termini e Condizioni:
                   </p>
-                  <a 
-                    href="mailto:info.singularityy@gmail.com" 
+                  <a
+                    href="mailto:info.singularityy@gmail.com"
                     className="text-primary hover:underline font-semibold text-lg inline-block mt-2"
                   >
                     info.singularityy@gmail.com

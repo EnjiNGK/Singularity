@@ -15,6 +15,7 @@ const contactFormSchema = z.object({
   email: z.string().trim().email("Inserisci un'email valida").max(255, "Email troppo lunga"),
   service: z.string().min(1, "Seleziona un servizio"),
   message: z.string().trim().min(10, "Il messaggio deve contenere almeno 10 caratteri").max(2000, "Il messaggio è troppo lungo"),
+  privacyAccepted: z.boolean().refine(val => val === true, "Devi accettare la Privacy Policy per continuare"),
 });
 
 const RATE_LIMIT_KEY = 'contact_form_submissions';
@@ -57,7 +58,8 @@ const ContactPage = () => {
     name: '',
     email: '',
     service: '',
-    message: ''
+    message: '',
+    privacyAccepted: false
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
@@ -65,10 +67,12 @@ const ContactPage = () => {
   const [honeypot, setHoneypot] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
+    const { name, value, type } = e.target;
+    const val = type === 'checkbox' ? (e.target as HTMLInputElement).checked : value;
+
     setFormData({
       ...formData,
-      [name]: value
+      [name]: val
     });
     if (validationErrors[name]) {
       setValidationErrors(prev => ({ ...prev, [name]: '' }));
@@ -134,7 +138,7 @@ const ContactPage = () => {
         description: "Ti contatteremo al più presto per discutere del tuo progetto.",
       });
 
-      setFormData({ name: '', email: '', service: '', message: '' });
+      setFormData({ name: '', email: '', service: '', message: '', privacyAccepted: false });
       setValidationErrors({});
     } catch {
       toast({
@@ -356,6 +360,24 @@ const ContactPage = () => {
                         <p className="text-destructive text-sm mt-1">{validationErrors.message}</p>
                       )}
                     </div>
+
+                    <div className="flex items-start space-x-2">
+                      <input
+                        type="checkbox"
+                        id="privacyAccepted"
+                        name="privacyAccepted"
+                        checked={formData.privacyAccepted}
+                        onChange={handleInputChange}
+                        className="mt-1 h-4 w-4 rounded border-border bg-background text-primary focus:ring-primary"
+                        required
+                      />
+                      <label htmlFor="privacyAccepted" className="text-sm text-muted-foreground leading-tight">
+                        Accetto la <a href="/privacy-policy" target="_blank" className="text-primary hover:underline">Privacy Policy</a> e acconsento al trattamento dei miei dati personali per essere ricontattato. *
+                      </label>
+                    </div>
+                    {validationErrors.privacyAccepted && (
+                      <p className="text-destructive text-sm mt-1">{validationErrors.privacyAccepted}</p>
+                    )}
 
                     <Button
                       type="submit"

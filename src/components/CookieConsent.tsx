@@ -2,10 +2,35 @@ import { useState, useEffect } from "react";
 import { X, Settings, Shield, BarChart3, Cookie } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { useToast } from "@/components/ui/use-toast";
 
 const CookieConsent = () => {
   const [showBanner, setShowBanner] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
+  const { toast } = useToast();
+
+  const injectGA = () => {
+    if (document.getElementById('google-analytics-script')) return;
+
+    const script1 = document.createElement('script');
+    script1.async = true;
+    script1.src = 'https://www.googletagmanager.com/gtag/js?id=G-3W389QY6ZD';
+    script1.id = 'google-analytics-script';
+    document.head.appendChild(script1);
+
+    const script2 = document.createElement('script');
+    script2.innerHTML = `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3W389QY6ZD', {
+        'anonymize_ip': true,
+        'cookie_flags': 'SameSite=None;Secure'
+      });
+    `;
+    document.head.appendChild(script2);
+  };
+
   const [preferences, setPreferences] = useState({
     necessary: true,
     analytics: false,
@@ -13,13 +38,18 @@ const CookieConsent = () => {
   });
 
   useEffect(() => {
-    const consent = localStorage.getItem("cookieConsent");
-    if (!consent) {
-      setTimeout(() => setShowBanner(true), 1000);
+    const savedConsent = localStorage.getItem('cookie-consent');
+    if (savedConsent) {
+      const parsedConsent = JSON.parse(savedConsent);
+      setPreferences(parsedConsent);
+      setShowBanner(false);
+      applyPreferences(parsedConsent);
+
+      if (parsedConsent.analytics) {
+        injectGA();
+      }
     } else {
-      const savedPreferences = JSON.parse(consent);
-      setPreferences(savedPreferences);
-      applyPreferences(savedPreferences);
+      setTimeout(() => setShowBanner(true), 1000);
     }
   }, []);
 
@@ -44,10 +74,15 @@ const CookieConsent = () => {
   };
 
   const savePreferences = (prefs: typeof preferences) => {
-    localStorage.setItem("cookieConsent", JSON.stringify(prefs));
+    localStorage.setItem('cookie-consent', JSON.stringify(prefs));
+    setPreferences(prefs);
     applyPreferences(prefs);
     setShowBanner(false);
     setShowSettings(false);
+
+    if (prefs.analytics) {
+      injectGA();
+    }
   };
 
   const acceptAll = () => {
@@ -95,7 +130,7 @@ const CookieConsent = () => {
                     Rispettiamo la tua privacy
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Utilizziamo cookie tecnici necessari per il funzionamento del sito e cookie analytics per migliorare la tua esperienza. 
+                    Utilizziamo cookie tecnici necessari per il funzionamento del sito e cookie analytics per migliorare la tua esperienza.
                     Puoi gestire le tue preferenze in qualsiasi momento.
                   </p>
                 </div>
@@ -178,13 +213,11 @@ const CookieConsent = () => {
                       <h3 className="font-semibold">Cookie Analytics</h3>
                       <button
                         onClick={() => setPreferences({ ...preferences, analytics: !preferences.analytics })}
-                        className={`inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors ${
-                          preferences.analytics ? 'bg-primary' : 'bg-input'
-                        }`}
+                        className={`inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors ${preferences.analytics ? 'bg-primary' : 'bg-input'
+                          }`}
                       >
-                        <div className={`block h-5 w-5 rounded-full bg-background shadow-lg transition-transform ${
-                          preferences.analytics ? 'translate-x-5' : 'translate-x-0'
-                        }`} />
+                        <div className={`block h-5 w-5 rounded-full bg-background shadow-lg transition-transform ${preferences.analytics ? 'translate-x-5' : 'translate-x-0'
+                          }`} />
                       </button>
                     </div>
                     <p className="text-sm text-muted-foreground">
@@ -200,13 +233,11 @@ const CookieConsent = () => {
                       <h3 className="font-semibold">Cookie Marketing</h3>
                       <button
                         onClick={() => setPreferences({ ...preferences, marketing: !preferences.marketing })}
-                        className={`inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors ${
-                          preferences.marketing ? 'bg-primary' : 'bg-input'
-                        }`}
+                        className={`inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors ${preferences.marketing ? 'bg-primary' : 'bg-input'
+                          }`}
                       >
-                        <div className={`block h-5 w-5 rounded-full bg-background shadow-lg transition-transform ${
-                          preferences.marketing ? 'translate-x-5' : 'translate-x-0'
-                        }`} />
+                        <div className={`block h-5 w-5 rounded-full bg-background shadow-lg transition-transform ${preferences.marketing ? 'translate-x-5' : 'translate-x-0'
+                          }`} />
                       </button>
                     </div>
                     <p className="text-sm text-muted-foreground">

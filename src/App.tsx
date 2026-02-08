@@ -23,9 +23,10 @@ const ContactPage = lazy(() => import("./pages/ContactPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const PortfolioPage = lazy(() => import("./pages/PortfolioPage"));
-const TermsPage = lazy(() => import("./pages/TermsPage"));
-const PrivacyPolicyPage = lazy(() => import("./pages/PrivacyPolicyPage"));
-const CookiePolicyPage = lazy(() => import("./pages/CookiePolicyPage"));
+const Terms = lazy(() => import("./pages/TermsPage"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicyPage"));
+const CookiePolicy = lazy(() => import("./pages/CookiePolicyPage"));
+const Accessibility = lazy(() => import("./pages/AccessibilityPage"));
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -280,7 +281,7 @@ const AppRoutes = () => {
                   description="Termini e condizioni di utilizzo dei nostri servizi."
                   path="/terms"
                 />
-                <TermsPage />
+                <Terms />
               </>
             } />
             <Route path="/privacy-policy" element={
@@ -290,7 +291,7 @@ const AppRoutes = () => {
                   description="Informativa sulla privacy e trattamento dei dati personali."
                   path="/privacy-policy"
                 />
-                <PrivacyPolicyPage />
+                <PrivacyPolicy />
               </>
             } />
             <Route path="/cookie-policy" element={
@@ -300,7 +301,17 @@ const AppRoutes = () => {
                   description="Informativa sull'utilizzo dei cookie nel nostro sito."
                   path="/cookie-policy"
                 />
-                <CookiePolicyPage />
+                <CookiePolicy />
+              </>
+            } />
+            <Route path="/accessibility" element={
+              <>
+                <SEO
+                  title="Dichiarazione di Accessibilità"
+                  description="Dichiarazione di accessibilità in conformità con l'European Accessibility Act."
+                  path="/accessibility"
+                />
+                <Accessibility />
               </>
             } />
             <Route path="*" element={
