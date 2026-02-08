@@ -127,6 +127,7 @@ const ContactPage = () => {
           from_email: validationResult.data.email,
           service_type: validationResult.data.service,
           message: validationResult.data.message,
+          to_email: 'info.singularityy@gmail.com',
         },
         EMAILJS_PUBLIC_KEY
       );
@@ -332,6 +333,7 @@ const ContactPage = () => {
                       >
                         <option value="">Seleziona un servizio</option>
                         <option value="grafica">Servizi di Grafica</option>
+                        <option value="web">Creazione Siti Web</option>
                         <option value="informatica">Servizi Informatici</option>
                         <option value="video">Video Editing</option>
                         <option value="altro">Altro</option>
