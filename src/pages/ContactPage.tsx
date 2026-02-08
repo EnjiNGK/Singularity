@@ -64,7 +64,6 @@ const ContactPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
   const { toast } = useToast();
-  const [honeypot, setHoneypot] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
@@ -81,14 +80,6 @@ const ContactPage = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (honeypot) {
-      toast({
-        title: "Messaggio inviato!",
-        description: "Ti contatteremo al più presto.",
-      });
-      return;
-    }
 
     if (!checkRateLimit()) {
       toast({
@@ -141,10 +132,11 @@ const ContactPage = () => {
 
       setFormData({ name: '', email: '', service: '', message: '', privacyAccepted: false });
       setValidationErrors({});
-    } catch {
+    } catch (error) {
+      console.error("EmailJS Error:", error);
       toast({
         title: "Errore nell'invio",
-        description: "Si è verificato un errore. Riprova o contattaci direttamente.",
+        description: "Si è verificato un errore tecnico. Riprova o contattaci direttamente.",
         variant: "destructive",
       });
     } finally {
@@ -268,15 +260,6 @@ const ContactPage = () => {
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-6">
-                    <input
-                      type="text"
-                      name="website"
-                      value={honeypot}
-                      onChange={(e) => setHoneypot(e.target.value)}
-                      style={{ position: 'absolute', left: '-9999px', opacity: 0 }}
-                      tabIndex={-1}
-                      autoComplete="off"
-                    />
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
