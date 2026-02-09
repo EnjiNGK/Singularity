@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { ScrollReveal } from '@/components/animations';
+import SEOHead from '@/components/SEOHead';
 
 const SocialCommitmentPage = () => {
   const { toast } = useToast();
@@ -17,6 +18,12 @@ const SocialCommitmentPage = () => {
 
   return (
     <div className="overflow-hidden">
+      <SEOHead
+        title="Impegno Sociale | Singularity Dream"
+        description="Scopri il nostro impegno sociale e ambientale. Destiniamo parte dei nostri profitti per aiutare la comunità e il pianeta."
+        keywords="impegno sociale, sostenibilità, donazioni, tecnologia inclusiva, impatto ambientale"
+        canonical="https://singularitydream.it/social-commitment"
+      />
       <section className="pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 relative min-h-screen flex items-center">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 right-1/4 w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-green-500/30 rounded-full blur-3xl animate-float opacity-60"></div>

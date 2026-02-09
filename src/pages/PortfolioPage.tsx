@@ -75,7 +75,7 @@ const projects: Project[] = [
     title: "Singularity Dream",
     category: 'web',
     description: "Il nostro sito web. Design moderno con animazioni fluide, portfolio interattivo e ottimizzazione SEO completa.",
-    image: "/images/portfolio/singularity-dream-website-preview.jpg",
+    image: "/images/portfolio/singularity-dream-homepage-preview.png",
     tags: ["Web Design", "React", "Animation"],
     client: "Singularity Dream",
     year: "2025",

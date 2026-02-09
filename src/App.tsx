@@ -11,7 +11,6 @@ import ExitIntentPopup from "./components/ExitIntentPopup";
 import FAQChatbot from "./components/FAQChatbot";
 import CookieConsent from "./components/CookieConsent";
 import IntroAnimation from "./components/IntroAnimation";
-import SEO from "./components/SEO";
 
 // Lazy load pages for better performance
 const HomePage = lazy(() => import("./pages/HomePage"));
@@ -203,127 +202,18 @@ const AppRoutes = () => {
         <CookieConsent />
         <Suspense fallback={<PageLoader />}>
           <Routes>
-            <Route path="/" element={
-              <>
-                <SEO
-                  title="Servizi Digitali in Italia"
-                  description="Grafica, assistenza informatica e video editing personalizzati e a domicilio. Professionisti al tuo servizio in tutta Italia."
-                  path="/"
-                />
-                <HomePage />
-              </>
-            } />
-            <Route path="/graphics" element={
-              <>
-                <SEO
-                  title="Grafica & Design"
-                  description="Logo design, brand identity, materiali promozionali e grafica per social media. Soluzioni creative per il tuo business."
-                  path="/graphics"
-                />
-                <GraphicsPage />
-              </>
-            } />
-            <Route path="/web-design" element={
-              <>
-                <SEO
-                  title="Sviluppo Siti Web"
-                  description="Sviluppo siti web moderni, responsive design, landing page, e-commerce e portfolio digitali."
-                  path="/web-design"
-                />
-                <WebDesignPage />
-              </>
-            } />
-            <Route path="/video-editing" element={
-              <>
-                <SEO
-                  title="Video Editing"
-                  description="Montaggio video professionale, post-produzione, editing per YouTube e social media."
-                  path="/video-editing"
-                />
-                <VideoEditingPage />
-              </>
-            } />
-            <Route path="/social-commitment" element={
-              <>
-                <SEO
-                  title="Impegno Sociale"
-                  description="Il nostro impegno per un futuro digitale accessibile e inclusivo."
-                  path="/social-commitment"
-                />
-                <SocialCommitmentPage />
-              </>
-            } />
-            <Route path="/contact" element={
-              <>
-                <SEO
-                  title="Contatti"
-                  description="Contattaci per informazioni sui nostri servizi digitali. Siamo qui per aiutarti."
-                  path="/contact"
-                />
-                <ContactPage />
-              </>
-            } />
-
-            <Route path="/portfolio" element={
-              <>
-                <SEO
-                  title="Portfolio"
-                  description="I nostri lavori migliori. Scopri cosa possiamo realizzare per te."
-                  path="/portfolio"
-                />
-                <PortfolioPage />
-              </>
-            } />
-            <Route path="/terms" element={
-              <>
-                <SEO
-                  title="Termini e Condizioni"
-                  description="Termini e condizioni di utilizzo dei nostri servizi."
-                  path="/terms"
-                />
-                <Terms />
-              </>
-            } />
-            <Route path="/privacy-policy" element={
-              <>
-                <SEO
-                  title="Privacy Policy"
-                  description="Informativa sulla privacy e trattamento dei dati personali."
-                  path="/privacy-policy"
-                />
-                <PrivacyPolicy />
-              </>
-            } />
-            <Route path="/cookie-policy" element={
-              <>
-                <SEO
-                  title="Cookie Policy"
-                  description="Informativa sull'utilizzo dei cookie nel nostro sito."
-                  path="/cookie-policy"
-                />
-                <CookiePolicy />
-              </>
-            } />
-            <Route path="/accessibility" element={
-              <>
-                <SEO
-                  title="Dichiarazione di Accessibilità"
-                  description="Dichiarazione di accessibilità in conformità con l'European Accessibility Act."
-                  path="/accessibility"
-                />
-                <Accessibility />
-              </>
-            } />
-            <Route path="*" element={
-              <>
-                <SEO
-                  title="Pagina Non Trovata"
-                  description="La pagina che cerchi non esiste."
-                  path="/404"
-                />
-                <NotFound />
-              </>
-            } />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/graphics" element={<GraphicsPage />} />
+            <Route path="/web-design" element={<WebDesignPage />} />
+            <Route path="/video-editing" element={<VideoEditingPage />} />
+            <Route path="/social-commitment" element={<SocialCommitmentPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/portfolio" element={<PortfolioPage />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/cookie-policy" element={<CookiePolicy />} />
+            <Route path="/accessibility" element={<Accessibility />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
         <Footer />

@@ -9,6 +9,7 @@ import emailjs from 'emailjs-com';
 import { useToast } from '@/hooks/use-toast';
 import { z } from 'zod';
 import { ScrollReveal } from '@/components/animations';
+import SEOHead from '@/components/SEOHead';
 
 const contactFormSchema = z.object({
   name: z.string().trim().min(2, "Il nome deve contenere almeno 2 caratteri").max(100, "Il nome è troppo lungo"),
@@ -146,6 +147,12 @@ const ContactPage = () => {
 
   return (
     <div className="overflow-hidden">
+      <SEOHead
+        title="Contattaci | Singularity Dream"
+        description="Hai un progetto in mente? Contattaci per una consulenza gratuita. Siamo qui per trasformare le tue idee in realtà digitale."
+        keywords="contatti, consulenza digitale, preventivo gratuito, assistenza informatica, grafica personalizzata"
+        canonical="https://singularitydream.it/contact"
+      />
       <section className="pt-32 pb-20 relative min-h-screen flex items-center">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-singularity-violet/30 rounded-full blur-3xl animate-float opacity-60"></div>
