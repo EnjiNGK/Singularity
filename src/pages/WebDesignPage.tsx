@@ -45,7 +45,7 @@ const WebDesignPage = () => {
   return (
     <div className="overflow-hidden">
       <SEOHead
-        title="Creazione Siti Web Professionali | Sviluppo Web Moderno Italia - Singularity Dream"
+        title="Siti Web Professionali | Singularity Dream"
         description="Sviluppiamo siti web professionali, responsive e ottimizzati SEO. Landing page, e-commerce, portfolio digitali e consulenza informatica. Prezzi accessibili in tutta Italia."
         keywords="creazione siti web, sviluppo sito web, web design Italia, sito web responsive, landing page, e-commerce, portfolio digitale, consulenza informatica"
         canonical="https://singularitydream.it/web-design"

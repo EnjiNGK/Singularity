@@ -89,7 +89,7 @@ const ScrollToTop = () => {
           structuredData = {
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "Servizi di Grafica Professionale",
+            "name": "Grafica Professionale",
             "description": "Logo design, brand identity, materiali promozionali e grafica per social media",
             "provider": {
               "@type": "Organization",
@@ -106,7 +106,7 @@ const ScrollToTop = () => {
           structuredData = {
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "Creazione Siti Web Professionali",
+            "name": "Siti Web Professionali",
             "description": "Sviluppo siti web moderni, responsive design, landing page, e-commerce e portfolio digitali",
             "provider": {
               "@type": "Organization",
@@ -134,6 +134,31 @@ const ScrollToTop = () => {
               "name": "Italia"
             },
             "serviceType": "Video Production"
+          };
+          break;
+        case '/social-commitment':
+          structuredData = {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Impegno Sociale",
+            "description": "Scopri il nostro impegno sociale e ambientale. Destiniamo parte dei nostri profitti per aiutare la comunità e il pianeta.",
+            "provider": {
+              "@type": "Organization",
+              "name": "Singularity Dream"
+            },
+            "areaServed": {
+              "@type": "Country",
+              "name": "Italia"
+            }
+          };
+          break;
+        case '/portfolio':
+          structuredData = {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "Portfolio",
+            "description": "Esplora il nostro portfolio interattivo di progetti creativi.",
+            "url": "https://singularitydream.it/portfolio"
           };
           break;
       }

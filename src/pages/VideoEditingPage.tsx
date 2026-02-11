@@ -15,7 +15,7 @@ const VideoEditingPage = () => {
   return (
     <div className="overflow-hidden">
       <SEOHead
-        title="Video Editing Professionale | Montaggio Video HD per YouTube | Singularity Dream"
+        title="Video Editing Professionale | Singularity Dream"
         description="Video editing professionale: montaggio video HD, editing per YouTube, post-produzione contenuti digitali. Qualità cinematografica per social media e aziende."
         keywords="video editing professionale, montaggio video HD, editing professionale YouTube, post-produzione contenuti digitali, montaggio video social media"
         canonical="https://singularitydream.it/video-editing"

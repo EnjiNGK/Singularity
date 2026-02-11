@@ -249,14 +249,12 @@ const PortfolioPage = () => {
         {showIntro && <CinematicIntro onComplete={handleIntroComplete} />}
       </AnimatePresence>
 
-      {!showIntro && (
-        <div className="relative z-10">
-          <DreamyHero />
-          <AboutSection />
-          <DraggableProjectsCarousel projects={projects} />
-          <CTASection />
-        </div>
-      )}
+      <div className={`relative z-10 transition-opacity duration-1000 ${showIntro ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'}`}>
+        <DreamyHero />
+        <AboutSection />
+        <DraggableProjectsCarousel projects={projects} />
+        <CTASection />
+      </div>
     </div>
   );
 };

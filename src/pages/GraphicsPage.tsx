@@ -16,7 +16,7 @@ const GraphicsPage = () => {
   return (
     <div className="overflow-hidden">
       <SEOHead
-        title="Servizi di Grafica Professionale | Logo Design e Brand Identity | Singularity Dream"
+        title="Grafica Professionale | Singularity Dream"
         description="Servizi di grafica professionale: logo design, brand identity, materiali promozionali, social media graphics. Qualità e creatività a prezzi accessibili in tutta Italia."
         keywords="grafica professionale, logo design, brand identity, branding aziendale, designer freelance, visual identity, graphic design per social, materiali promozionali"
         canonical="https://singularitydream.it/graphics"
