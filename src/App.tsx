@@ -89,7 +89,7 @@ const ScrollToTop = () => {
           structuredData = {
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "Grafica Professionale",
+            "name": "Servizi di Grafica Professionale",
             "description": "Logo design, brand identity, materiali promozionali e grafica per social media",
             "provider": {
               "@type": "Organization",

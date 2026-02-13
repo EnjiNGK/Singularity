@@ -50,7 +50,8 @@ const SEOHead = ({ title, description, keywords, canonical, ogImage }: SEOHeadPr
 
     updateOGMeta('og:title', title);
     updateOGMeta('og:description', description);
-    
+    updateOGMeta('og:url', canonical || window.location.href);
+
     if (ogImage) {
       updateOGMeta('og:image', ogImage);
     }
@@ -67,7 +68,7 @@ const SEOHead = ({ title, description, keywords, canonical, ogImage }: SEOHeadPr
 
     updateTwitterMeta('twitter:title', title);
     updateTwitterMeta('twitter:description', description);
-    
+
     if (ogImage) {
       updateTwitterMeta('twitter:image', ogImage);
     }

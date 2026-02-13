@@ -16,9 +16,9 @@ const GraphicsPage = () => {
   return (
     <div className="overflow-hidden">
       <SEOHead
-        title="Grafica Professionale | Singularity Dream"
-        description="Servizi di grafica professionale: logo design, brand identity, materiali promozionali, social media graphics. Qualità e creatività a prezzi accessibili in tutta Italia."
-        keywords="grafica professionale, logo design, brand identity, branding aziendale, designer freelance, visual identity, graphic design per social, materiali promozionali"
+        title="Creazione Loghi e Grafica Professionale | Singularity Dream"
+        description="Servizi di grafica professionale: logo design, brand identity, materiali promozionali e social media graphics. Soluzioni creative su misura per il tuo brand in tutta Italia."
+        keywords="grafica professionale, logo design, brand identity, branding aziendale, designer freelance, visual identity, graphic design per social, materiali promozionali, creazione loghi"
         canonical="https://singularitydream.it/graphics"
       />
 
@@ -98,7 +98,9 @@ const GraphicsPage = () => {
             <div className="prose prose-lg mx-auto text-muted-foreground">
               <p className="text-lg leading-relaxed mb-6">
                 Ci occupiamo di <strong>logo design, brand identity e materiali grafici</strong>, lavorando con privati,
-                professionisti e aziende.
+                professionisti e aziende. I nostri servizi di <strong>grafica professionale</strong> sono pensati per
+                integrarsi perfettamente con la tua <Link to="/web-design" className="text-primary hover:underline">presenza web</Link> e
+                i tuoi <Link to="/video-editing" className="text-primary hover:underline">contenuti video</Link>.
               </p>
               <p className="text-lg leading-relaxed">
                 Ogni progetto nasce su misura, con un approccio moderno e professionale pensato per costruire

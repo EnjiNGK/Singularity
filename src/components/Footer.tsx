@@ -125,8 +125,8 @@ const Footer = () => {
                 <a href="tel:+393488664662" className="hover:text-primary transition-colors">+39 348 866 4662</a>
               </li>
               <li>
-                <a href="mailto:info.singularityy@gmail.com" className="dark:text-gray-400 light:text-slate-600 hover:text-primary transition-colors break-all text-sm">
-                  info.singularityy@gmail.com
+                <a href="mailto:info@singularitydream.it" className="dark:text-gray-400 light:text-slate-600 hover:text-primary transition-colors break-all text-sm">
+                  info@singularitydream.it
                 </a>
               </li>
             </ul>
@@ -151,9 +151,9 @@ const Footer = () => {
             </p>
           </div>
           <div className="mt-2 md:mt-0 flex-shrink-0">
-            <a href="mailto:info.singularityy@gmail.com" className="dark:text-gray-400 light:text-slate-600 hover:text-primary transition-colors flex items-center hover:scale-105 duration-300 text-sm">
+            <a href="mailto:info@singularitydream.it" className="dark:text-gray-400 light:text-slate-600 hover:text-primary transition-colors flex items-center hover:scale-105 duration-300 text-sm">
               <Mail size={18} className="mr-2 flex-shrink-0" />
-              <span className="break-all">info.singularityy@gmail.com</span>
+              <span className="break-all">info@singularitydream.it</span>
             </a>
           </div>
         </div>

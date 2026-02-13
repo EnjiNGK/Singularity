@@ -235,9 +235,9 @@ const PortfolioPage = () => {
   return (
     <div className="min-h-screen relative">
       <SEOHead
-        title="Portfolio | Progetti Creativi di Grafica, Web e Video | Singularity Dream"
-        description="Esplora il nostro portfolio interattivo: progetti di grafica professionale, siti web moderni, video editing e iniziative sociali."
-        keywords="portfolio grafica, portfolio web design, portfolio video editing, progetti creativi"
+        title="Portfolio Progetti Creativi | Grafica, Web Design e Video Editing | Singularity Dream"
+        description="Scopri il portfolio di Singularity Dream: progetti di grafica professionale, creazione siti web moderni, video editing HD e iniziative di impegno sociale. Creatività e innovazione al tuo servizio."
+        keywords="portfolio grafica, portfolio web design, portfolio video editing, progetti creativi, brand identity portfolio, siti web portfolio, montaggio video portfolio"
         canonical="https://singularitydream.it/portfolio"
       />
 
@@ -249,7 +249,7 @@ const PortfolioPage = () => {
         {showIntro && <CinematicIntro onComplete={handleIntroComplete} />}
       </AnimatePresence>
 
-      <div className={`relative z-10 transition-opacity duration-1000 ${showIntro ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'}`}>
+      <div className={`relative z-10 transition-opacity duration-1000 ${showIntro ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
         <DreamyHero />
         <AboutSection />
         <DraggableProjectsCarousel projects={projects} />
